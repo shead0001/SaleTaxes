@@ -9,11 +9,12 @@ import java.util.Set;
 
 import seb.taxes.report.ReportGenerator;
 import seb.taxes.report.ReportGeneratorFactory;
-import seb.taxes.report.data.Inputs;
+//import seb.taxes.report.data.Inputs;
 import seb.taxes.type.GoodType;
 
 public class InputProcessor {
 
+	/*
 	public static void main(String[] args) {
 
 		InputProcessor inputtProc = new InputProcessor();
@@ -21,7 +22,8 @@ public class InputProcessor {
 		// System.out.println(basket.toString());
 		ReportGenerator gen = ReportGeneratorFactory.createTxtReportGenerator();
 		gen.generate(basket).print();
-	}
+	}*/
+
 
 	public InputProcessor() {
 	}

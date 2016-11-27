@@ -1,0 +1,5 @@
+seb\taxes\report\data\Results.class
+seb\taxes\report\InputProcessorTest.class
+seb\taxes\report\GoodTest.class
+seb\taxes\report\data\Inputs.class
+seb\taxes\report\TxtReportTest.class
