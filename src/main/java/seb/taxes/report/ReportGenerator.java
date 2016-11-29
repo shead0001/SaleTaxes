@@ -3,6 +3,7 @@ package seb.taxes.report;
 import seb.taxes.Basket;
 
 /**
+ * 
  * @author caponnetto
  *
  */
@@ -12,6 +13,12 @@ public class ReportGenerator {
 	 * 
 	 */
 	private Report report;
+
+	/**
+	 * 
+	 */
+	public ReportGenerator() {
+	}
 
 	/**
 	 * 

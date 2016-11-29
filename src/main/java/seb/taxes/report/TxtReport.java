@@ -9,36 +9,32 @@ import seb.taxes.Good;
  */
 public class TxtReport implements Report {
 
-	String reportText;
-
 	/**
 	 * 
 	 */
-	public TxtReport() {
-
-	}
+	private String reportText;
 
 	/**
+	 * Implementazione della logica per la generazioene della stringa di output
+	 * 
 	 * @return
-	 * 
 	 */
-	public void generate(Basket basket) {
+	public void generate(final Basket basket) {
 
 		reportText = generateString(basket);
-		return;
 
 	}
 
 	/**
-	 * 
+	 * Generazione della stringa di output a partire dall'oggetto Basket
 	 * @param basket
-	 * @return
+	 * @return stringa di output da stampare come output
 	 */
 
-	public String generateString(Basket basket) {
+	public String generateString(final Basket basket) {
 		final String listRowsReportString = genListRowsReport(basket);
 
-		String finalPartReportString = genFinalPartReport(basket);
+		final String finalPartReportString = genFinalPartReport(basket);
 
 		final StringBuilder stringBuilder = new StringBuilder();
 		stringBuilder.append(listRowsReportString)
@@ -48,51 +44,52 @@ public class TxtReport implements Report {
 	}
 
 	/**
+	 * Generazione della parte di stringa di output relativa alle righe
 	 * 
 	 * @param basket
-	 * @return
+	 * @return parte di stringa di output relativa alle righe
 	 */
-	public String genListRowsReport(Basket basket) {
+	private String genListRowsReport(final Basket basket) {
 		final StringBuilder stringBuilder = new StringBuilder();
 
-		for (Good good : basket.getGoodsList()) {
+		for (final Good good : basket.getGoodsList()) {
 			// stringBuilder.append(good);
 			stringBuilder.append(genRowReport(good));
 
-			stringBuilder.append("\n");
+			stringBuilder.append('\n');
 		}
 		return stringBuilder.toString();
 	}
 
 	/**
+	 * Generazione della parte di stringa di output relativa al totale dei prezzi
+	 *  e delle tasse
 	 * 
 	 * @param basket
 	 * @return
 	 */
-	public String genFinalPartReport(Basket basket) {
+	public String genFinalPartReport(final Basket basket) {
 		final StringBuilder stringBuilder = new StringBuilder();
 		stringBuilder.append("Sales Taxes: ").append(basket.getSumTaxes())
-				.append("\n").append("Total: ").append(basket.getSumPrices());
+				.append("\nTotal: ").append(basket.getSumPrices());
 
-		String finalPartReportString = stringBuilder.toString();
-		return finalPartReportString;
+		return stringBuilder.toString();
 	}
 
 	/**
+	 * Generazione della stringa di output a partire da un oggetto Good
 	 * 
 	 * @param good
 	 * @return
 	 */
-	public String genRowReport(Good good) {
-		String imported = good.isImported() ? " imported " : " ";
+	private String genRowReport(final Good good) {
+		final String imported = good.isImported() ? " imported " : " ";
 		return good.getNumber() + imported + good.getName() + ": "
 				+ good.getFinalPrice();
 	}
 
-	/*
-	 * (non-Javadoc)
+	/**
 	 * 
-	 * @see seb.taxes.report.Report#print()
 	 */
 	@Override
 	public void print() {

@@ -1,6 +1,7 @@
 package seb.taxes.report;
 
 /**
+ * Facotory per la creazione di un generatore di report
  * @author caponnetto
  *
  */
@@ -8,7 +9,7 @@ public class ReportGeneratorFactory {
 
 	/**
 	 * 
-	 * @return
+	 * @return un generatore di report
 	 */
 	public static ReportGenerator createTxtReportGenerator() {
 
